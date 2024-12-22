@@ -19,7 +19,17 @@ pipeline {
                 } 
             }
         }
- }
+        stage('Test') {
+            steps {
+                script {
+                    echo "Running tests to verify setup."
+                    // This could be any test script or command, for now, it's just an echo
+                    sh 'echo "Test successful!"'
+                }
+            }
+        }
+    }
+
     post {
         always {
             echo 'Slack Notifications.'
@@ -29,7 +39,3 @@ pipeline {
         }
     }
 }
-
-
-
-
